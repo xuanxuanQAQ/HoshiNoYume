@@ -1,0 +1,5 @@
+CyberKaNoJo_env/
+model/tts/G_latest.pth
+model/tts/moegoe_config.json
+__pycache__
+api_key.py

@@ -1,0 +1,10 @@
+openai
+tencentcloud-sdk-python
+pyaudio
+simpleaudio
+pydub
+webrtcvad
+asyncio
+aiohttp
+pvporcupine
+paho-mqtt

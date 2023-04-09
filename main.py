@@ -72,6 +72,19 @@ def wait_to_wake_up():
         audio_stream.close()
         porcupine.delete()
         kws_audio.terminate()
+        
+        user_words = '在吗'
+        text = ''
+        messages = ''
+        
+        location = city_location
+        url = f"https://devapi.qweather.com/v7/weather/now?location={location}&key={Qweather_key}&lang=en"
+        weather_data = requests.get(url).json()
+        
+        text , messages = gpt_reqeust(user_words , weather_data , text , messages)      #openai api请求
+        text = text.replace('\n', '')
+                
+        vits_tts(text)
 
 def sound_record():
     # 设置录音参数
@@ -170,7 +183,7 @@ async def asr_request(wav_base64):
     return response
 
 async def weather_request():
-    location = "101110109"
+    location = city_location
     url = f"https://devapi.qweather.com/v7/weather/now?location={location}&key={Qweather_key}&lang=en"
 
     async with aiohttp.ClientSession() as session:
@@ -223,7 +236,7 @@ def gpt_reqeust(user_words , weather_data , text , messages):
         
     completion = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
-        temperature=0.8,
+        temperature=0.7,
         messages = messages
     )
     
@@ -352,9 +365,9 @@ def main():
         
         user_words , weather_data = asyncio.run(sec_api_request(wav_base64))            #第二次API请求，通过异步并行运行以降低时耗
         if user_words == "":
-            wait_to_wake_up()
             text = ""
             messages = ""
+            wait_to_wake_up()
             continue
         
         text , messages = gpt_reqeust(user_words , weather_data , text , messages)      #openai api请求
@@ -378,9 +391,9 @@ def main():
         if index != -1:
             if text.rfind('@end') != -1:
                 print("结束对话了")
-                wait_to_wake_up()
                 text = ""
                 messages = ""
+                wait_to_wake_up()
             
             
 if __name__ == '__main__':

@@ -3,6 +3,7 @@ import os
 tencent_Id = "xxxxxxxxxxxxxxxxxxx"
 tencent_key = "xxxxxxxxxxxxxxxxxxx"
 # 和风天气api的KEY
+city_location = "101110109"
 Qweather_key = "xxxxxxxxxxxxxxxxxxx"
 # openai api的KEY
 openai_key = "sk-xxxxxxxxxxxxxxxxxxx"

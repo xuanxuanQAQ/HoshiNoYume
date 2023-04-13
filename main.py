@@ -1,6 +1,5 @@
 import openai
 import numpy as np
-import simpleaudio as sa
 import json
 from tencentcloud.common import credential
 from tencentcloud.common.profile.client_profile import ClientProfile
@@ -23,11 +22,14 @@ import requests
 import hashlib
 import pvporcupine
 import struct
+from pydub import AudioSegment
+from pydub.utils import make_chunks
 
 sys.path.append("MoeGoe")
 from MoeGoe import *
 from api_key import *
 from IoT_request import mqtt_connect , mqtt_publish
+from Live2D import *
 def print_info():
     print("device info:")
     if torch.cuda.is_available():
@@ -73,16 +75,7 @@ def wait_to_wake_up():
         porcupine.delete()
         kws_audio.terminate()
         
-        user_words = '在吗'
-        text = ''
-        messages = ''
-        
-        location = city_location
-        url = f"https://devapi.qweather.com/v7/weather/now?location={location}&key={Qweather_key}&lang=en"
-        weather_data = requests.get(url).json()
-        
-        text , messages = gpt_reqeust(user_words , weather_data , text , messages)      #openai api请求
-        text = text.replace('\n', '')
+        text = "はい、私はここにいます。何かご用ですか？"
                 
         vits_tts(text)
 
@@ -289,8 +282,37 @@ def vits_tts(text):
     def sound_play():
         normalized_audio = audio / np.max(np.abs(audio))
         audio_int16 = (normalized_audio * (2**15 - 1)).astype(np.int16)
-        play_obj = sa.play_buffer(audio_int16, 1, 2, 22050)
-        play_obj.wait_done()
+        
+        sample_width = 2
+        channels = 1
+        frame_rate = 22050
+        
+        audio_segment = AudioSegment(
+            audio_int16.tobytes(),
+            sample_width=sample_width,
+            frame_rate=frame_rate,
+            channels=channels
+        )
+        
+        pa = pyaudio.PyAudio()
+        stream = pa.open(format=pa.get_format_from_width(audio_segment.sample_width),
+                        channels=audio_segment.channels,
+                        rate=audio_segment.frame_rate,
+                        output=True)
+        
+        chunk_length = 50
+        chunks = make_chunks(audio_segment, chunk_length)
+        
+        for chunk in chunks:
+            if Live2D_enabled:
+                rms = chunk.rms
+                socket_send(rms)
+
+            stream.write(chunk.raw_data)
+            
+        stream.stop_stream()
+        stream.close()
+        pa.terminate()
     
     if text != "":
         thread_sound_play = threading.Thread(target=sound_play)
@@ -303,9 +325,10 @@ def vits_tts(text):
         thread_translate.start()
         thread_sound_play.join()
         thread_translate.join()
-        if mqtt_control and IoT_enabled:
-            thread_mqtt_publish.join()
-            mqtt_control = False
+        if IoT_enabled:
+            if mqtt_control:
+                thread_mqtt_publish.join()
+                mqtt_control = False
     
 
 def youdao_translate(words):
@@ -355,9 +378,12 @@ def main():
     messages = ""
     if IoT_enabled:
         global mqtt_control
-        thread_mqttt = threading.Thread(target=mqtt_connect)       # 初始化MQTT
-        thread_mqttt.start()
+        thread_mqtt = threading.Thread(target=mqtt_connect)       # 初始化MQTT
+        thread_mqtt.start()
         mqtt_control = False
+    if Live2D_enabled:
+        thread_socket = threading.Thread(target=socket_init)       # 初始化MQTT
+        thread_socket.start()
     vits_tts(text)      # 空运行一次作为初始化
     wait_to_wake_up()
     while True:

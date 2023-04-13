@@ -26,3 +26,5 @@ IoT_enabled = False
 mqtt_broker = "xxx.xxx.xxx.xxx"
 mqtt_port = 1883
 openai_key_for_iot = "sk-xxxxxxxxxxxxxxxxxxx"
+# Live2D相关
+Live2D_enabled = False

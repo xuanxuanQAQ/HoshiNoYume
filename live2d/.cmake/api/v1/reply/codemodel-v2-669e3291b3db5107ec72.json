@@ -1,0 +1,351 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						4
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Release-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "third/glew/build/cmake",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-third.glew.build.cmake-Release-8d71fa3a5e481d99400f.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "third/glew/build/cmake",
+					"targetIndexes" : 
+					[
+						2,
+						3,
+						5
+					]
+				},
+				{
+					"build" : "third/glfw",
+					"childIndexes" : 
+					[
+						3
+					],
+					"jsonFile" : "directory-third.glfw-Release-9124771d2d8795db0e23.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 2,
+					"source" : "third/glfw"
+				},
+				{
+					"build" : "third/glfw/src",
+					"jsonFile" : "directory-third.glfw.src-Release-7e0cd429f893cb55d8af.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 2,
+					"source" : "third/glfw/src",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "Framework",
+					"childIndexes" : 
+					[
+						5
+					],
+					"jsonFile" : "directory-Framework-Release-71518dac3356a1b60dd6.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "Framework",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "Framework/src",
+					"childIndexes" : 
+					[
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						14,
+						15
+					],
+					"jsonFile" : "directory-Framework.src-Release-0ef42b2e9f1736c40677.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 4,
+					"projectIndex" : 0,
+					"source" : "Framework/src"
+				},
+				{
+					"build" : "Framework/src/Effect",
+					"jsonFile" : "directory-Framework.src.Effect-Release-b5a9155175bc9bc5033a.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 5,
+					"projectIndex" : 0,
+					"source" : "Framework/src/Effect"
+				},
+				{
+					"build" : "Framework/src/Id",
+					"jsonFile" : "directory-Framework.src.Id-Release-9ce09d19057bc72ffcc1.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 5,
+					"projectIndex" : 0,
+					"source" : "Framework/src/Id"
+				},
+				{
+					"build" : "Framework/src/Math",
+					"jsonFile" : "directory-Framework.src.Math-Release-daf51560e3fccb2d7b1c.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 5,
+					"projectIndex" : 0,
+					"source" : "Framework/src/Math"
+				},
+				{
+					"build" : "Framework/src/Model",
+					"jsonFile" : "directory-Framework.src.Model-Release-4ab414ad3f772de7bade.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 5,
+					"projectIndex" : 0,
+					"source" : "Framework/src/Model"
+				},
+				{
+					"build" : "Framework/src/Motion",
+					"jsonFile" : "directory-Framework.src.Motion-Release-a7dd8ecb65944e517ad5.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 5,
+					"projectIndex" : 0,
+					"source" : "Framework/src/Motion"
+				},
+				{
+					"build" : "Framework/src/Physics",
+					"jsonFile" : "directory-Framework.src.Physics-Release-0e7cbfa655f233c9ae8c.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 5,
+					"projectIndex" : 0,
+					"source" : "Framework/src/Physics"
+				},
+				{
+					"build" : "Framework/src/Rendering",
+					"childIndexes" : 
+					[
+						13
+					],
+					"jsonFile" : "directory-Framework.src.Rendering-Release-a78f139871e408f56ff2.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 5,
+					"projectIndex" : 0,
+					"source" : "Framework/src/Rendering"
+				},
+				{
+					"build" : "Framework/src/Rendering/OpenGL",
+					"jsonFile" : "directory-Framework.src.Rendering.OpenGL-Release-69b1e0cc794c0b5a82dc.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 12,
+					"projectIndex" : 0,
+					"source" : "Framework/src/Rendering/OpenGL"
+				},
+				{
+					"build" : "Framework/src/Type",
+					"jsonFile" : "directory-Framework.src.Type-Release-36c3aab5ca0765648de4.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 5,
+					"projectIndex" : 0,
+					"source" : "Framework/src/Type"
+				},
+				{
+					"build" : "Framework/src/Utils",
+					"jsonFile" : "directory-Framework.src.Utils-Release-8871c1606d17133fbe7c.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 5,
+					"projectIndex" : 0,
+					"source" : "Framework/src/Utils"
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"directoryIndexes" : 
+					[
+						0,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15
+					],
+					"name" : "Live2D",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "glew",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						2,
+						3,
+						5
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						2,
+						3
+					],
+					"name" : "GLFW",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						4
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 4,
+					"id" : "Framework::@9c55c6b88f2a474f058e",
+					"jsonFile" : "target-Framework-Release-2590123b03eecd40ee52.json",
+					"name" : "Framework",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Live2D::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Live2D-Release-00a5c9eb691377ecbb47.json",
+					"name" : "Live2D",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "glew::@3cf116890d0f1cb6c005",
+					"jsonFile" : "target-glew-Release-6fe574f90506a6097d31.json",
+					"name" : "glew",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "glew_s::@3cf116890d0f1cb6c005",
+					"jsonFile" : "target-glew_s-Release-478c8c6b580a3ce57673.json",
+					"name" : "glew_s",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "glfw::@d9b34ad674966aa74dba",
+					"jsonFile" : "target-glfw-Release-ebab4592e566748296b9.json",
+					"name" : "glfw",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "uninstall::@3cf116890d0f1cb6c005",
+					"jsonFile" : "target-uninstall-Release-f6f77eccf174981e2f82.json",
+					"name" : "uninstall",
+					"projectIndex" : 1
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "E:/project/8.software/CyberKaNoJo-Live2D/out/build/x64-release",
+		"source" : "E:/project/8.software/CyberKaNoJo-Live2D"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}

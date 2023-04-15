@@ -389,6 +389,8 @@ def main():
         thread_socket = threading.Thread(target=socket_init)       # 初始化MQTT
         thread_socket.start()
     vits_tts(text)      # 空运行一次作为初始化
+    if Live2D_enabled:
+        live2d_open()
     thread_socket.join()
     wait_to_wake_up()
     while True:

@@ -1,4 +1,5 @@
 import socket
+import subprocess
 
 def socket_init():
     host = '127.0.0.1'
@@ -20,3 +21,7 @@ def socket_send(message):
     
 def socket_close():
     conn.close()
+    
+def live2d_open():
+    exe_path = "live2d/Live2D.exe"
+    subprocess.Popen(exe_path)

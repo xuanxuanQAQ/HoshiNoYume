@@ -16,7 +16,7 @@ def socket_init():
     
 
 def socket_send(message):
-    conn.send(message.to_bytes(4, 'big'))
+    conn.send(message.to_bytes(4, 'big', signed=True))
     
 def socket_close():
     conn.close()

@@ -40,6 +40,8 @@ def print_info():
         print("cuda is not available")
     
 def wait_to_wake_up():
+    if Live2D_enabled:
+        socket_send(-2)
     porcupine = pvporcupine.create(
         access_key = porcupine_key,
         keyword_paths = [porcupine_model]
@@ -74,9 +76,10 @@ def wait_to_wake_up():
         audio_stream.close()
         porcupine.delete()
         kws_audio.terminate()
+        if Live2D_enabled:
+            socket_send(-1)
         
-        text = "はい、私はここにいます。何かご用ですか？"
-                
+        text = "はい、私はここにいます。何かご用ですか？"        
         vits_tts(text)
 
 def sound_record():
@@ -329,6 +332,7 @@ def vits_tts(text):
             if mqtt_control:
                 thread_mqtt_publish.join()
                 mqtt_control = False
+        
     
 
 def youdao_translate(words):
@@ -385,6 +389,7 @@ def main():
         thread_socket = threading.Thread(target=socket_init)       # 初始化MQTT
         thread_socket.start()
     vits_tts(text)      # 空运行一次作为初始化
+    thread_socket.join()
     wait_to_wake_up()
     while True:
         wav_base64 = sound_record()                                                     #录制声音

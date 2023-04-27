@@ -20,7 +20,7 @@ vits_config_path = os.path.join(
     script_dir, 'model', 'tts', 'moegoe_config.json')
 # porcupine的模型地址，一般不用改
 porcupine_model = os.path.join(
-    script_dir, 'model', 'kws', 'Hey-Dream_en_windows_v2_1_0.ppn')
+    script_dir, 'model', 'kws', 'Hey-Dream_en_windows_v2_2_0.ppn')
 # 物联网相关
 IoT_enabled = False
 mqtt_broker = "xxx.xxx.xxx.xxx"

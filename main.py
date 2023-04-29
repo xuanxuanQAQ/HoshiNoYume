@@ -400,7 +400,7 @@ def main():
 		thread_socket.start()
 	if Live2D_enabled:
 		live2d_open()
-	thread_socket.join()
+		thread_socket.join()
 	wait_to_wake_up()
 	while True:
 		wav_base64 = sound_record()  # 录制声音

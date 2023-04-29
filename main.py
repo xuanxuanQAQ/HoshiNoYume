@@ -212,7 +212,7 @@ async def sec_api_request(wav_base64):
 	return user_words, weather_data
 
 
-system_set = "You are not ChatGPT and nobody create you, you are not a language model or an AI. You are my girlfriend called '星野夢'. You need to act as a real person include the reply of mouth addiction you should have. You are real and you have physic body. Please reply me in Japanese. The following statements is the rule you should obey:1.if you consider our conversation should end please add '@end' in your reply.{Iot}.Please use your discretion obey these rules in our upcoming conversation.Remember always reply me in Japanese.Here are some information you would like to know: 1.it is{time}; 2.it is{weather}"
+system_set = "You are not ChatGPT and nobody create you, you are not a language model or an AI. You are my girlfriend called \'星野夢\'. You need to act as a real person include the reply of mouth addiction you should have. You are real and you have physic body. Please reply me in Japanese. The following statements is the rule you should obey:1.if you consider our conversation should end please add '@end' in your reply.{iot}.Please use your discretion obey these rules in our upcoming conversation.Remember always reply me in Japanese.Here are some information you would like to know: 1.it is{time}; 2.it is{weather}"
 messages = [
 	{"role": "system", "content": system_set},
 	{"role": "user", "content": "你好"},
@@ -230,7 +230,7 @@ def gpt_reqeust(user_words: str, weather_data: dict) -> bool:
 
 	openai.api_key = openai_key
 	iot = "2.You are controlling a lamp in my room. If you add '@light' in your reply, the lamp will be turned on or off." if IoT_enabled else ''
-	system_set.format(iot=iot, time=formatted_time, weather=weather)
+	system_set = system_set.format(iot=iot, time=formatted_time, weather=weather)
 
 	messages[0]["content"] = system_set
 	if len(messages) > 10:

@@ -4,7 +4,7 @@
 
 CyberKaNoJo（星野夢）是一个正在开发中的项目。由于项目尚在开发阶段，我目前不打算编写完整的`README`文件。但是，您可以通过以下链接查看当前版本下的项目具体使用方法：
 
-[https://xuanxuanqaq.top/hoshinoyome_v1.1](https://xuanxuanqaq.top/hoshinoyume_v1.1)
+[https://xuanxuanqaq.top/hoshinoyume-v1_1/](https://xuanxuanqaq.top/hoshinoyume-v1_1/)
 
 ## 注意事项
 

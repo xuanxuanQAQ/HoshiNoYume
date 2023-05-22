@@ -1,6 +1,8 @@
 from actions.IoT_control import mqtt_publish
 from langchain.agents import Tool
 from api_key import *
+from tools.system_control import press_key_wake_up
+import memory
 
 def light_handle(instruction):
     print("少女行动中...")
@@ -12,7 +14,9 @@ def light_handle(instruction):
 
 def end_talk(_):
     print("结束对话捏...")
-    return "end"
+    memory.long_memory.summary_write(memory.short_memory)
+    memory.long_memory.short_memory_vector_write(memory.short_memory)
+    press_key_wake_up()
 
 def just_chat(_):
     return "chat"

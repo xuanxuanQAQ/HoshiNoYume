@@ -187,3 +187,4 @@ model/tts/*.pth
 
 # api
 HoshiNoYume/api_key.py
+HoshiNoYume/memory/long_summary_memory.txt

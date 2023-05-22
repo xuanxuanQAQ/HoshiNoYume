@@ -38,7 +38,7 @@ def main():
         interact = re.search(r'#interact:\s*(.*?)\)', response)
         if interact == "end":
             conv_end()
-        else:
+        elif interact != None:
             thinking.agent_interact(interact)
         
 if __name__ == '__main__':

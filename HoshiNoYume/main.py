@@ -10,9 +10,6 @@ import re
 # 初始化
 def init():
     tools.print_device_info()
-    if IoT_enabled:
-        thread_mqtt = threading.Thread(target=actions.mqtt_connect)
-        thread_mqtt.start()
     if Live2D_enabled:
         thread_socket = threading.Thread(target=actions.socket_init)  # 初始化MQTT
         thread_socket.start()
@@ -38,11 +35,11 @@ def main():
         response = thinking.chat(memory.short_memory, memory.long_memory, search_info)
         memory.short_memory.add_ai_message(response)
         
-        # interact = re.search(r'#interact:\s*(.*?)\)', response)
-        # if interact == "end":
-        #     conv_end()
-        # else:
-        #     thinking.agent_interact(interact)
+        interact = re.search(r'#interact:\s*(.*?)\)', response)
+        if interact == "end":
+            conv_end()
+        else:
+            thinking.agent_interact(interact)
         
 if __name__ == '__main__':
     main()

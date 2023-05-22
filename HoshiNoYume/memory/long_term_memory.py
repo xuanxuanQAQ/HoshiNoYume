@@ -17,21 +17,6 @@ class ChatLongMemory(SummarizerMixin):
         self.index = pinecone.Index(pinecone_index)
         with open("HoshiNoYume\memory\long_summary_memory.txt", "r") as file:
             self.summary_memory = file.read()
-
-    def vector_write(self,text):
-        response = openai.Embedding.create(
-            input=text,
-            model="text-similarity-babbage-001"
-        )
-        self.index.upsert(
-             vectors=[
-                {'id':'vec1', 
-                'values':response['data'][0]['embedding'], 
-                'metadata':{'genre': 'drama'},
-                'sparse_values':
-                {'indices': [10, 45, 16],
-                'values':  [0.5, 0.5, 0.2]}}
-            ])
     
     def short_memory_vector_write(self,short_memory:ChatShortMemory):
         # 把短期记忆的对话记录写进向量数据库

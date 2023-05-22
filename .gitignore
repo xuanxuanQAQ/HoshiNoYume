@@ -181,5 +181,9 @@ yume_env/
 # 模型
 model/kws/*.ppn
 model/live2d/
+!model/live2d/README.md
 model/tts/*.json
 model/tts/*.pth
+
+# api
+HoshiNoYume/api_key.py
